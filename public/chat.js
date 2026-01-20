@@ -22,7 +22,6 @@ const typingIndicator = document.getElementById("typing-indicator");
 const whoButton = document.getElementById("ask-who");
 const whatButton = document.getElementById("ask-what");
 const whenButton = document.getElementById("ask-when");
-const weatherButton = document.getElementById("ask-weather");
 
 // Chat state
 let chatHistory = [
@@ -61,10 +60,6 @@ whatButton.addEventListener("click", () => {
 
 whenButton.addEventListener("click", () => {
   quickMessage(whenButton.getAttribute("title"));
-});
-
-weatherButton.addEventListener("click", () => {
-  quickMessage(weatherButton.getAttribute("title"));
 });
 
 function quickMessage(msg) {
@@ -165,7 +160,7 @@ async function sendMessage() {
     console.error("Error:", error);
     addMessageToChat(
       "assistant",
-      "Sorry, there was an error processing your request."
+      "Sorry, there was an error processing your request.",
     );
   } finally {
     // Hide typing indicator
