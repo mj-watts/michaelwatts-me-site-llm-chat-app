@@ -6,27 +6,23 @@
     <title>Chat</title>
     <style>
       :root {
-        --color-primary: var(--color-primary);
-        --color-onPrimary: var(--color-onPrimary);
-        --color-secondary: var(--color-secondary);
-        --color-emphasis: var(--color-emphasis);
+        --color-primary: var(--color-primary, #ffffff);
+        --color-onPrimary: var(--color-onPrimary, #363636);
+        --color-secondary: var(--color-secondary, #d2d2d2);
+        --color-emphasis: var(--color-emphasis, #0d9667);
 
-        --primary-color: var(--color-onPrimary, #363636);
+        --primary-color: var(--color-onPrimary);
         --primary-hover: oklab(from var(--primary-color) calc(l - 0.1) a b);
 
-        --light-bg: var(--color-primary, #ffffff);
-        --border-color: oklab(
-          from var(--color-secondary, #d2d2d2) calc(l - 0.1) a b
-        );
-        --text-color: var(--color-onPrimary, #363636);
+        --light-bg: var(--color-primary);
+        --border-color: oklab(from var(--color-secondary) calc(l - 0.1) a b);
+        --text-color: var(--color-onPrimary);
         --text-light: oklab(from var(--text-color) l a b / 0.5);
-        --msg-bg: var(--color-primary, #ffffff);
+        --msg-bg: var(--color-primary);
 
-        --send-btn-color: var(--color-primary, #ffffff);
-        --send-bg: var(--color-emphasis, #e00101);
-        --send-bg-hover: oklab(
-          from var(--color-emphasis, #e00101) calc(l - 0.1) a b
-        );
+        --send-btn-color: var(--color-primary);
+        --send-bg: var(--color-emphasis);
+        --send-bg-hover: oklab(from var(--color-emphasis) calc(l - 0.1) a b);
       }
 
       * {
