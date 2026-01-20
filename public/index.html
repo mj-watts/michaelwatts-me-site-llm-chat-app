@@ -11,18 +11,20 @@
         --color-secondary: var(--color-secondary, #d2d2d2);
         --color-emphasis: var(--color-emphasis, #0d9667);
 
-        --primary-color: var(--color-onPrimary);
+        --primary-color: var(--color-onPrimary, #363636);
         --primary-hover: oklab(from var(--primary-color) calc(l - 0.1) a b);
 
-        --light-bg: var(--color-primary);
-        --border-color: oklab(from var(--color-secondary) calc(l - 0.1) a b);
-        --text-color: var(--color-onPrimary);
+        --light-bg: var(--color-primary, #ffffff);
+        --border-color: oklab(
+          from var(--color-secondary, #d2d2d2) calc(l - 0.1) a b
+        );
+        --text-color: var(--primary-color);
         --text-light: oklab(from var(--text-color) l a b / 0.5);
-        --msg-bg: var(--color-primary);
+        --msg-bg: var(--light-bg);
 
-        --send-btn-color: var(--color-primary);
-        --send-bg: var(--color-emphasis);
-        --send-bg-hover: oklab(from var(--color-emphasis) calc(l - 0.1) a b);
+        --send-btn-color: var(--light-bg);
+        --send-bg: var(--color-emphasis, #0d9667);
+        --send-bg-hover: oklab(from var(--send-bg) calc(l - 0.1) a b);
       }
 
       * {
@@ -45,7 +47,6 @@
         flex-direction: column;
         height: 100vh;
         min-height: 400px;
-        border: 1px solid var(--border-color);
         overflow: hidden;
         background: var(--light-bg);
       }
@@ -63,7 +64,6 @@
       .message {
         max-width: 80%;
         background-color: var(--msg-bg);
-        border-radius: 5px;
         box-shadow: 3px 3px 20px rgb(0, 0, 0, 0.1);
       }
 
@@ -84,8 +84,6 @@
       .message-input {
         display: flex;
         padding: 0.75rem;
-        border-top: 1px solid var(--border-color);
-        background-color: var(--border-color);
       }
 
       #user-input {
@@ -140,8 +138,8 @@
         flex-wrap: wrap;
         gap: 0.5rem;
         padding: 1rem 1rem 0;
-        background-color: var(--border-color);
         align-items: center;
+        border-top: 1px solid var(--border-color);
       }
 
       .quick-questions-title {
