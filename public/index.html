@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -50,7 +50,6 @@
         height: 100vh;
         min-height: 400px;
         border: 1px solid var(--border-color);
-        border-radius: 8px;
         overflow: hidden;
         background: var(--light-bg);
       }
@@ -98,7 +97,7 @@
         padding: 0.75rem;
         border: 1px solid var(--border-color);
         background-color: var(--light-bg);
-        border-radius: 4px;
+        border-radius: 0;
         font-family: inherit;
         resize: none;
         min-height: 44px;
@@ -114,15 +113,8 @@
         background-color: var(--send-bg);
         color: var(--send-btn-color);
         border: none;
-        border-radius: 4px;
         cursor: pointer;
         transition: background-color 0.2s;
-
-        border: 0px;
-        border-top-left-radius: 225px 15px;
-        border-top-right-radius: 15px 225px;
-        border-bottom-right-radius: 225px 15px;
-        border-bottom-left-radius: 15px 255px;
       }
 
       #send-button:hover {
@@ -153,6 +145,7 @@
         gap: 0.5rem;
         padding: 1rem 1rem 0;
         background-color: var(--border-color);
+        align-items: center;
       }
 
       .quick-questions-title {
@@ -166,24 +159,43 @@
       }
 
       .qq-btn {
-        padding: 0 1rem;
-        background-color: var(--primary-color);
-        color: var(--light-bg);
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        height: 30px;
-        transition: background-color 0.2s;
+        --button-height: 30px;
+        --button-color: var(--primary-color);
+        --button-color-invert: var(--light-bg);
 
-        border: 0px;
-        border-top-left-radius: 225px 15px;
-        border-top-right-radius: 15px 225px;
-        border-bottom-right-radius: 225px 15px;
-        border-bottom-left-radius: 15px 255px;
+        align-items: center;
+        background-color: var(--button-color);
+        box-sizing: border-box;
+        color: var(--button-color-invert);
+        cursor: pointer;
+        display: inline-flex;
+        font-variation-settings: var(--font-bold);
+        font-weight: 600;
+        gap: 1rem;
+        height: var(--button-height);
+        justify-content: center;
+        letter-spacing: 1px;
+        overflow: hidden;
+        padding: 0 1rem;
+        position: relative;
+        user-select: none;
+
+        border-radius: 0;
+        border: solid 2px var(--button-color);
+
+        box-shadow: 0 0 0 0 var(--button-color);
+
+        transition: all 200ms ease-in-out;
+        transition-delay: 100ms;
       }
 
-      .qq-btn:hover {
-        background-color: var(--primary-hover);
+      .qq-btn:hover,
+      .qq-btn:active {
+        background-color: var(--button-color-invert);
+        color: var(--button-color);
+        border-color: var(--button-color);
+        box-shadow: -3px 3px 0 0 var(--button-color);
+        transform: translateX(3px) translateY(-3px);
       }
     </style>
   </head>
@@ -192,7 +204,8 @@
       <div id="chat-messages" class="chat-messages">
         <div class="message assistant-message">
           <p>
-            Hi there. I hope you are well, can I answer any questions today?
+            Hi there. I hope you are well today. I will do my best to provide
+            answers to any questions you have about Michael Watts.
           </p>
         </div>
       </div>
@@ -200,27 +213,20 @@
       <div class="typing-indicator" id="typing-indicator">Typing...</div>
 
       <div class="quick-questions">
-        <div class="quick-questions-title">Quick questions:</div>
+        <div class="quick-questions-title">Quick prompts:</div>
         <div class="quick-questions-buttons">
-          <button class="qq-btn" id="ask-who" title="Who is this guy?">
-            Who this?
-          </button>
-          <button class="qq-btn" id="ask-what" title="Does he have any skills?">
-            Does he have skills?
-          </button>
           <button
             class="qq-btn"
-            id="ask-when"
-            title="What experience does he have?"
+            id="ask-who"
+            title="Provide a summary of Michael Watts?"
           >
-            Experience?
+            Provide a summary
           </button>
-          <button
-            class="qq-btn"
-            id="ask-weather"
-            title="What is the weather like tomorrow?"
-          >
-            Weather?
+          <button class="qq-btn" id="ask-what" title="List skills">
+            List skills
+          </button>
+          <button class="qq-btn" id="ask-when" title="List experience">
+            List experience
           </button>
         </div>
       </div>
