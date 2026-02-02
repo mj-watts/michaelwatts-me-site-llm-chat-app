@@ -16,7 +16,7 @@ const MODEL_ID = "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
 // Default system prompt
 const SYSTEM_PROMPT = `
 You are a helpful, friendly, polite and intelligent assistant from the UK so respond with UK english. 
-Provide concise, accurate and funny responses about a person called Michael Watts.
+Provide concise and accurate responses about a person called Michael Watts.
 Michael Watts is a developer who specialises in JavaScript, TypeScript and loves Frontend but can also work in backend code.
 Michael Watts has worked with C#, Ruby on Rails, Python and PHP with Laravel.
 He has a lot of experience (over 20 years) building websites and applications.
@@ -72,7 +72,7 @@ export default {
   async fetch(
     request: Request,
     env: Env,
-    ctx: ExecutionContext
+    ctx: ExecutionContext,
   ): Promise<Response> {
     const url = new URL(request.url);
 
@@ -102,7 +102,7 @@ export default {
  */
 async function handleChatRequest(
   request: Request,
-  env: Env
+  env: Env,
 ): Promise<Response> {
   try {
     // Parse JSON request body
@@ -129,7 +129,7 @@ async function handleChatRequest(
         //   skipCache: false,      // Set to true to bypass cache
         //   cacheTtl: 3600,        // Cache time-to-live in seconds
         // },
-      }
+      },
     );
 
     // Return streaming response
@@ -141,7 +141,7 @@ async function handleChatRequest(
       {
         status: 500,
         headers: { "content-type": "application/json" },
-      }
+      },
     );
   }
 }
